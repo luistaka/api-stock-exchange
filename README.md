@@ -1,2 +1,2 @@
-# api_stock_exchange
+# api-stock-exchange
 Ingestor from API to S3
