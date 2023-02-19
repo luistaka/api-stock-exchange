@@ -1,0 +1,12 @@
+version = 0.1
+[production]
+[production.deploy]
+[production.deploy.parameters]
+stack_name = "api-stock-lambdas-production"
+s3_prefix = "api-stock-lambdas-production"
+region = "sa-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = true
+parameter_overrides = []
+image_repositories = []

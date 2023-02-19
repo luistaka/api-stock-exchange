@@ -1,4 +1,4 @@
-#!/Users/luis.takahashi/Desktop/Tools/Git/api-stock-exchange/bin/python3.9
+#!/Users/luis.takahashi/Desktop/Tools/Git/api-stock-exchange/bin/python3.11
 # -*- coding: utf-8 -*-
 import re
 import sys

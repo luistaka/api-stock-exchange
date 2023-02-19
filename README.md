@@ -15,6 +15,7 @@ source /Users/luis.takahashi/Desktop/Tools/Git/api-stock-exchange/bin/activate
 
 # Install requirements
 pip install -r requirements.txt
+pip install --upgrade --force-reinstall -r requirements.txt
 
 # See list of libraries installed
 pip list
