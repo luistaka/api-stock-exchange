@@ -1,0 +1,13 @@
+version = 0.1
+[production]
+[production.deploy]
+[production.deploy.parameters]
+stack_name = "lambdas-production"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1733pzx8xkjk5"
+s3_prefix = "lambdas-production"
+region = "sa-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = true
+parameter_overrides = []
+image_repositories = []

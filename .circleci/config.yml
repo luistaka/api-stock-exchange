@@ -1,0 +1,27 @@
+---
+version: 2.1
+orbs:
+  sam: circleci/aws-sam-serverless@3.2.0
+
+jobs:
+  deploy-to-prod:
+    executor: sam/default
+    steps:
+      - checkout
+      - sam/install
+      - sam/build:
+          template: template.yaml
+      - run: |
+          sam deploy --no-fail-on-empty-changeset --no-confirm-changeset --config-env production
+workflows:
+  # version: 2
+  Pipeline:
+    jobs:
+      - deploy-to-prod:
+          context: aws-bra-prod
+          filters:
+            branches:
+              only:
+                - main
+
+# VS Code Extension Version: 1.5.1
