@@ -1,3 +1,7 @@
+# aws sam
+sam build
+sam deploy --no-fail-on-empty-changeset --no-confirm-changeset --config-env production
+ 
 # api-stock-exchange
 Ingestor from API to S3
 

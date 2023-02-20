@@ -12,7 +12,7 @@ jobs:
       - sam/build:
           template: template.yaml
       - run: |
-          sam deploy --no-fail-on-empty-changeset --no-confirm-changeset --resolve-s3 --config-env production
+          sam deploy --no-fail-on-empty-changeset --no-confirm-changeset --config-env production
 workflows:
   # version: 2
   Pipeline:
