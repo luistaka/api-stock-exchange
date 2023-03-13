@@ -2,7 +2,8 @@ import json
 import boto3
 import requests
 import pandas as pd
-from datetime import datetime, timezone
+from pytz import timezone
+from datetime import datetime
 from botocore.exceptions import ClientError
 from io import StringIO # python3; python2: BytesIO 
 
@@ -12,13 +13,14 @@ def build_sheet_url(sheet_id, sheet_name):
 
 def upload_data_to_s3(bucket, df):
 
-    current_datetime = datetime.now()
+    current_datetime = datetime.now(timezone('America/Sao_Paulo'))
     
-    filename = f"{current_datetime.strftime('%s')}"
+    filename = "customer_data"
     path = f'gsheet/{current_datetime.date()}/{filename}.csv'
-    
+    df['dt_update_at'] = current_datetime
+    print(current_datetime)
     csv_buffer = StringIO()
-    df.to_csv(csv_buffer)
+    df.to_csv(csv_buffer, index=False)
     # Upload JSON String to an S3 Object
     s3_resource = boto3.resource('s3')
     s3_bucket = s3_resource.Bucket(name=bucket)
@@ -34,7 +36,7 @@ def lambda_handler(event, context):
     sheet_name = event['SHEET_NAME']
 
     sheet_url = build_sheet_url(sheet_id, sheet_name)
-    df = pd.read_csv(sheet_url, index=False)
+    df = pd.read_csv(sheet_url)
 
     upload_data_to_s3('datalake-xpe-raw', df)
 

@@ -26,6 +26,8 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+bin/
+include/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -84,7 +86,6 @@ ipython_config.py
 # pyenv
 .python-version
 pyvenv.cfg
-bin/
 
 # pipenv
 #   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
@@ -132,4 +133,3 @@ dmypy.json
 
 # Aws
 .aws-sam
-

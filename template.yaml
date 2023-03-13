@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: Function used to extract data from zendesk
+Description: Function used to extract data from api-stock.
 
 Resources:
   ApiStockFunction:
@@ -18,7 +18,7 @@ Resources:
         Variables:
           ZENDESK_API: zendesk_chats_api
       Policies:
-        - AWSLambdaBasicExecutionRole
+        - AWSLambda_FullAccess
         - AmazonS3FullAccess
 
   GsheetFunction:
@@ -31,10 +31,10 @@ Resources:
         - x86_64
       MemorySize: 512
       Timeout: 600
-      Description: A Lambda function created to get users data from zendesk.
+      Description: Function used to extract data from gsheet
       Environment:
         Variables:
           ZENDESK_API: zendesk_users_api
       Policies:
-        - AWSLambdaBasicExecutionRole
+        - AWSLambda_FullAccess
         - AmazonS3FullAccess
